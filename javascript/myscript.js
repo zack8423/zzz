@@ -1,3 +1,7 @@
+
+  $(document).ready(function(){
+	HeartsBackground.initialize();
+  });
 var getclickf = document.querySelector('.firstclk');
 getclickf.style.opacity = "0";
 
@@ -184,6 +188,7 @@ getclickf.addEventListener('click', function(){
 		}
 	});
 });
+
 var cantho =document.querySelector('.main');
 cantho.insertAdjacentHTML('afterend', '<div class="author mt-5"><div class="row"><div class="col-12"><div class="me text-danger text-right"></div></div></div></div>');
 
@@ -192,3 +197,17 @@ document.querySelector('.Description .modal-body').innerHTML = 'Tao thích mi í
 var author = document.querySelector('.author .me');author.style.opacity = "0.5";
 author.innerHTML = "╔♫═╗╔╗ ♥ <br>╚╗╔╝║║♫═╦╦╦╔╗<br> ╔╝╚╗♫╚╣║║║║╔╣ <br>   ╚═♫╝╚═╩═╩♫╩═╝<br>ஜ۩۞۩ஜ YOU ஜ۩۞۩ஜ";
 author.style.opacity = "0";
+
+$("body").on("click", function() {
+	var b = Math.floor((Math.random() * 100) + 1);
+	var d = ["flowOne", "flowTwo", "flowThree"];
+	var a = ["colOne", "colTwo", "colThree", "colFour", "colFive", "colSix"];
+	var c = (Math.random() * (1.6 - 1.2) + 1.2).toFixed(1);
+	$('<div class="heart part-' + b + " " + a[Math.floor((Math.random() * 6))] + '" style="font-size:' + Math.floor(Math.random() * (50 - 22) + 22) + 'px;"><i class="fa fa-heart"></i></div>').appendTo(".hearts").css({
+	animation: "" + d[Math.floor((Math.random() * 3))] + " " + c + "s linear"
+	});
+	$(".part-" + b).show();
+	setTimeout(function() {
+	$(".part-" + b).remove()
+	}, c * 900)
+	});
